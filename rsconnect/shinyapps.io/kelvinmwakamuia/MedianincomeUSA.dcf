@@ -5,7 +5,7 @@ account: kelvinmwakamuia
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 12468683
-bundleId:
+bundleId: 8994156
 url: https://kelvinmwakamuia.shinyapps.io/MedianincomeUSA/
 version: 1
 asMultiple: FALSE
