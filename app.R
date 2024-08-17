@@ -25,7 +25,7 @@ my_theme <- bs_theme(
 
 ui <- fluidPage(
   theme = my_theme,  # Apply the custom theme
-  titlePanel("ACS Median Household Income Interactive Map"),
+  titlePanel("American Community Survey Median Household Income Interactive Map"),
   
   sidebarLayout(
     sidebarPanel(
