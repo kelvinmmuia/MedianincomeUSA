@@ -4,25 +4,35 @@ library(tidycensus)
 library(mapview)
 library(leaflet)
 library(dotenv)
+library(bslib)
+
+
 # Load environment variables from the .env file
 dotenv::load_dot_env()
 
 # Access the API key
 census_api_key(Sys.getenv("CENSUS_API_KEY"), install = TRUE, overwrite = TRUE)
 
-# Define UI
+
+# Define a custom theme
+my_theme <- bs_theme(
+  bg = "#2C3E50",       # Background color
+  fg = "#ECF0F1",       # Text color
+  primary = "#18BC9C",  # Accent color
+  base_font = font_google("Lato"),
+  heading_font = font_google("Montserrat")
+)
+
 ui <- fluidPage(
-  # App title
+  theme = my_theme,  # Apply the custom theme
   titlePanel("ACS Median Household Income Interactive Map"),
   
-  # Sidebar layout with input controls
   sidebarLayout(
     sidebarPanel(
       selectInput("geography", "Geography Level:",
                   choices = c("Tract" = "tract", "County" = "county", "State" = "state", "Block Group" = "block group"), 
                   selected = "tract"),
       
-      # Add dynamic variable selection
       selectInput("variable", "ACS Variable:",
                   choices = c("Median household income (B19013_001)" = "B19013_001",
                               "Total population (B01003_001)" = "B01003_001",
